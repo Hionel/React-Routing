@@ -49,7 +49,10 @@ export default function Root() {
 							name="searchQueryParam"
 							defaultValue={queryParam}
 							onChange={(event) => {
-								submit(event.currentTarget.form);
+								const isFirstSearch = queryParam === null;
+								submit(event.currentTarget.form, {
+									replace: isFirstSearch,
+								});
 							}}
 							className={searching ? "loading" : ""}
 						/>
